@@ -3,8 +3,6 @@
 @section('content')
 
 
-@section('content')
-
 <div class="d-flex align-items-start m-1">
     <a href="{{route('admin.posts.create')}}" class="btn btn-outline-info" role="button" aria-disabled="true">Nuovo Post</a>
 </div>
@@ -34,7 +32,11 @@
                 </td>
                 <td>
                     {{-- bottone per eliminare articolo --}}
-                    <a href="{{route('admin.posts.destroy', $post)}}" class="btn btn-outline-danger" role="button" aria-disabled="true">Elimina</a>
+                    <form action="{{route('admin.posts.destroy',$post)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline-danger">Elimina</button>
+                    </form>
                 </td>
             </tr>
         @endforeach
