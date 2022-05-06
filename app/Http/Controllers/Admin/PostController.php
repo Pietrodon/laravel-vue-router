@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 
+
+
 class PostController extends Controller
 {
     /**
@@ -17,8 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-         $posts = Post::all();
-
+        $posts = Post::orderBy('published_at', 'DESC')->get();
 
         return view('admin.posts.index',compact('posts'));
     }
@@ -106,9 +107,35 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        // validazione del form
+        $request->validate([
+            'title'=> 'required',
+            'description' => 'required',
+            'published_at' =>'nullable|date|before_or_equal:today'
+        ]);
+
+        $data = $request->all();
+        // generazione nuovo slug se il titolo cambia
+        if( $post->title != $data['title']){
+            $slug = Str::slug($data['title']);
+
+            $contatore = 1;
+
+            $post_present = Post::where('slug',$slug)->first();
+
+            while ($post_present) {
+                $slug=Str::slug($data['title']).'-'.$contatore;
+                $contatore++;
+                $post_present = Post::where('slug',$slug)->first();
+            }
+        }
+        $data['slug']=$slug;
+        $post->update($data);
+
+
+        return redirect()->route('admin.posts.index');
     }
 
     /**
