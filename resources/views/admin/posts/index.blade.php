@@ -5,8 +5,8 @@
 
 @section('content')
 
-<div class="container">
-    {{-- <a href="{{route('admin.posts.create',$posts)}}" class="btn btn-outline-info" role="button" aria-disabled="true">new Post</a> --}}
+<div class="d-flex align-items-start m-1">
+    <a href="{{route('admin.posts.create')}}" class="btn btn-outline-info" role="button" aria-disabled="true">Nuovo Post</a>
 </div>
 <table class="table">
     <thead>
