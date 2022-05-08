@@ -22,6 +22,10 @@ class CategorySeeder extends Seeder
             $category->slug =Str::slug( $name );
 
             $category->save();
-        }
+        };
+
+    }
+    public function category(){
+        return $this->belongTo('App\Post');
     }
 }

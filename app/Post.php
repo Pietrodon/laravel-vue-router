@@ -15,8 +15,8 @@ class Post extends Model
     ];
 
 
-    public function category(){
-        return $this->belongTo('App\Category');
+    public function addcategory(){
+        return $this->hasMany('App\Category');
     }
 }
 
