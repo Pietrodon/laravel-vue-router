@@ -12,6 +12,7 @@
         <th scope="col">TITOLO</th>
         <th scope="col">SLUG</th>
         <th scope="col">DESCRIZIONE</th>
+        <th scope="col">CATEGORIA</th>
         <th scope="col">PUBBLICAZIONE</th>
         <th scope="col">MODIFICA</th>
         <th scope="col">ELIMINA</th>
@@ -25,6 +26,7 @@
                 <td>{{ $post -> title }}</td>
                 <td>{{ $post -> slug }}</td>
                 <td>{{ $post -> description }}</td>
+                <td>{{ $post -> category_name }}</td>
                 <td>{{ $post -> published_at }}</td>
                 <td>
                     {{-- bottone per indirizzare alla pagina di edit --}}
