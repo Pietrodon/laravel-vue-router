@@ -29,6 +29,7 @@
               <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
+        {{-- form per selezionare la categoria --}}
         <div class="form-group">
             <label for="category_id">Seleziona una categoria</label>
             <select class="form-control" id="category_id" name="category_id">
