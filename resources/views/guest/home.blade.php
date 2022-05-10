@@ -21,7 +21,9 @@
 </head>
 <body>
     <div id="root">
-        <h1>Stai visualizzando una rotta non definita </h1>
+
     </div>
+
+    <script src="{{ asset('js/front.js')}}"></script>
 </body>
 </html>
