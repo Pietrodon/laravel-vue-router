@@ -26,9 +26,9 @@ Route::middleware('auth')
     ->namespace('Admin')
     ->group(function(){
 
-    Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/create', 'PostController@index')->name('create');
-    Route::get('/edit', 'PostController@index')->name('edit');
-    Route::get('/delete', 'PostController@index')->name('delete');
+    // Route::get('/home', 'HomeController@index')->name('home');
+    // Route::get('/create', 'PostController@index')->name('create');
+    // Route::get('/edit', 'PostController@index')->name('edit');
+    // Route::get('/delete', 'PostController@index')->name('delete');
     Route::resource('posts','PostController');
 });

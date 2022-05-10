@@ -9,14 +9,14 @@ class Post extends Model
     protected $fillable =[
         'title',
         'description',
-        'category-id',
+        'category_id',
         'published_at',
         'slug',
     ];
 
 
-    public function addcategory(){
-        return $this->hasMany('App\Category');
+    public function category(){
+        return $this->belongTO('App\Category');
     }
 }
 
