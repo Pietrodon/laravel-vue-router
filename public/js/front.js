@@ -1932,6 +1932,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2480,15 +2482,19 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("header", [
-      _c("h1", [_vm._v("IL MIO BOOLPRESS")]),
+      _c("div", { staticClass: "container flex justify-center" }, [
+        _c("h1", [_vm._v("IL MIO BOOLPRESS")]),
+      ]),
       _vm._v(" "),
-      _c("nav", [
-        _c("ul", [
-          _c("li", [_vm._v("HOME")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("POST")]),
-          _vm._v(" "),
-          _c("li", [_vm._v("CATEGORIES")]),
+      _c("div", { staticClass: "container flex justify-center" }, [
+        _c("nav", [
+          _c("ul", { staticClass: "flex gap-3" }, [
+            _c("li", { staticClass: "flex" }, [_vm._v("HOME")]),
+            _vm._v(" "),
+            _c("li", { staticClass: "flex" }, [_vm._v("POST")]),
+            _vm._v(" "),
+            _c("li", { staticClass: "flex " }, [_vm._v("CATEGORIES")]),
+          ]),
         ]),
       ]),
     ])
@@ -2523,7 +2529,7 @@ var render = function () {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container" },
+    { staticClass: "container grid gap-4 grid-cols-3 grid-rows-3" },
     _vm._l(_vm.posts, function (post) {
       return _c("div", { key: post.id }, [
         _vm._v("\n        " + _vm._s(post.title) + "\n    "),

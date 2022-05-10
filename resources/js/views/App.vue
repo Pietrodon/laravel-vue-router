@@ -1,14 +1,18 @@
 <template>
-  <div>
+  <div >
       <header>
-        <h1>IL MIO BOOLPRESS</h1>
-        <nav>
-            <ul>
-                <li>HOME</li>
-                <li>POST</li>
-                <li>CATEGORIES</li>
-            </ul>
-        </nav>
+          <div  class="container flex justify-center">
+              <h1>IL MIO BOOLPRESS</h1>
+          </div>
+          <div class="container flex justify-center">
+            <nav>
+                <ul class="flex gap-3">
+                    <li class="flex">HOME</li>
+                    <li class="flex">POST</li>
+                    <li class="flex ">CATEGORIES</li>
+                </ul>
+            </nav>
+          </div>
       </header>
       <div>
           <PostsController />
@@ -16,8 +20,6 @@
       <footer>
           <h1>FOOTER</h1>
       </footer>
-
-
   </div>
 </template>
 
