@@ -32,3 +32,8 @@ Route::middleware('auth')
     // Route::get('/delete', 'PostController@index')->name('delete');
     Route::resource('posts','PostController');
 });
+
+
+Route::get('{any}',function (){
+    return view('guest.home');
+})->where('any','.*');
