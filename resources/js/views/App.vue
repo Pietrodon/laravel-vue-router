@@ -10,15 +10,11 @@
             </ul>
         </nav>
       </header>
-      <Posts />
+      <div>
+          <PostsController />
+      </div>
       <footer>
-          <nav>
-              <ul>
-                  <li>PRODOTTI</li>
-                  <li>CONTATTI</li>
-                  <li>SOCIAL</li>
-              </ul>
-          </nav>
+          <h1>FOOTER</h1>
       </footer>
 
 
@@ -26,22 +22,14 @@
 </template>
 
 <script>
-import Posts from './Posts.index.vue'
+import PostsController from './Posts.index.vue'
 export default {
     components:{
-        Posts
+        PostsController
     }
 }
 </script>
 
 <style>
-    ul{
-        display: flex;
-        gap:5px;
-    }
-    li{
-        list-style: none;
-        display: flex;
-    }
 
 </style>

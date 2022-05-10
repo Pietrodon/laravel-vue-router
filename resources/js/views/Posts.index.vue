@@ -18,7 +18,8 @@ export default {
 
             axios.get('/api/post')
                 .then(res=>{
-                    console.log(res.data)
+                    const { posts }= res.data
+                    this.posts = posts
                 })
                 .catch(err =>{
                     this.fetchPosts()
