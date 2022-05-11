@@ -4,15 +4,9 @@
             <PostCard v-for="post in posts" :key="post.id" :post="post" />
         </div>
         <div class="container">
-            <nav>
                 <ul class="flex justify-center gap-3 mt-2">
-                    <li class="border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center">1</li>
-                    <li class="border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center">2</li>
-                    <li class="border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center">3</li>
-                    <li class="border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center">4</li>
-                    <li class="border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center">5</li>
+                    <li  v-for="n in lastPage" :key="n" class="border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center" >{{n}}</li>
                 </ul>
-            </nav>
         </div>
     </div>
 
@@ -27,7 +21,9 @@ export default {
     },
     data(){
         return{
-            posts:[]
+            posts:[],
+            lastPage:0,
+            currentPage:1,
         }
     },
     methods:{
@@ -36,7 +32,10 @@ export default {
             axios.get('/api/post')
                 .then(res=>{
                     const { posts }= res.data
+                    const {data,last_page,current_page} =posts
                     this.posts = res.data.posts.data
+                    this.currentPage = current_page
+                    this.lastPage= last_page
                 })
                 .catch(err =>{
                     this.fetchPosts()

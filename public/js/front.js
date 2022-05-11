@@ -1974,6 +1974,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     post: {
@@ -2009,12 +2016,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2022,7 +2023,9 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      posts: []
+      posts: [],
+      lastPage: 0,
+      currentPage: 1
     };
   },
   methods: {
@@ -2031,7 +2034,12 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/post').then(function (res) {
         var posts = res.data.posts;
+        var data = posts.data,
+            last_page = posts.last_page,
+            current_page = posts.current_page;
         _this.posts = res.data.posts.data;
+        _this.currentPage = current_page;
+        _this.lastPage = last_page;
       })["catch"](function (err) {
         _this.fetchPosts();
       });
@@ -2652,7 +2660,7 @@ var render = function () {
         _vm._v(" "),
         _c("p", [
           _c("span", { staticClass: "font-bold" }, [
-            _vm._v("\n            ANTICIPAZIONE CONTENUTO:\n        "),
+            _vm._v("ANTICIPAZIONE CONTENUTO:"),
           ]),
           _vm._v(" "),
           _c("br"),
@@ -2661,11 +2669,11 @@ var render = function () {
         _vm._v(" "),
         _c("p", [
           _c("span", { staticClass: "font-bold" }, [
-            _vm._v(" DATA PUBBLICAZIONE: "),
+            _vm._v(" DATA PUBBLICAZIONE:"),
           ]),
           _vm._v(" "),
           _c("br"),
-          _vm._v(" " + _vm._s(_vm.post.published_at)),
+          _vm._v("\n        " + _vm._s(_vm.post.published_at) + "\n    "),
         ]),
       ]),
     ]
@@ -2706,66 +2714,27 @@ var render = function () {
       1
     ),
     _vm._v(" "),
-    _vm._m(0),
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "ul",
+        { staticClass: "flex justify-center gap-3 mt-2" },
+        _vm._l(_vm.lastPage, function (n) {
+          return _c(
+            "li",
+            {
+              key: n,
+              staticClass:
+                "border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center",
+            },
+            [_vm._v(_vm._s(n))]
+          )
+        }),
+        0
+      ),
+    ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("nav", [
-        _c("ul", { staticClass: "flex justify-center gap-3 mt-2" }, [
-          _c(
-            "li",
-            {
-              staticClass:
-                "border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center",
-            },
-            [_vm._v("1")]
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            {
-              staticClass:
-                "border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center",
-            },
-            [_vm._v("2")]
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            {
-              staticClass:
-                "border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center",
-            },
-            [_vm._v("3")]
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            {
-              staticClass:
-                "border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center",
-            },
-            [_vm._v("4")]
-          ),
-          _vm._v(" "),
-          _c(
-            "li",
-            {
-              staticClass:
-                "border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center",
-            },
-            [_vm._v("5")]
-          ),
-        ]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
