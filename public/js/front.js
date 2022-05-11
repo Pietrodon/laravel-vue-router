@@ -1968,8 +1968,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     post: {
@@ -1997,9 +1995,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2016,7 +2011,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/post').then(function (res) {
         var posts = res.data.posts;
-        _this.posts = posts;
+        _this.posts = res.data.posts.data;
       })["catch"](function (err) {
         _this.fetchPosts();
       });
