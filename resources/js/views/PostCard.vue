@@ -5,6 +5,7 @@
         <h2 class="font-bold">TITOLO DEL POST: <br> "{{post.title}}"</h2>
         <p> <span class="font-bold"> ANTICIPAZIONE CONTENUTO: </span><br> {{post.description}}</p>
         <p> <span class="font-bold"> DATA PUBBLICAZIONE: </span><br> {{ post.published_at}}</p>
+
     </div>
 
     </div>

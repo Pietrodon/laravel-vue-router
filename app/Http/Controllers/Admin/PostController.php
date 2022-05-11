@@ -20,7 +20,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('published_at', 'DESC')->get();
+        // $posts = Post::orderBy('published_at', 'DESC')->get();
+        $posts = Post::with(['category'])->orderBy('published_at', 'DESC')->get();
 
         return view('admin.posts.index',compact('posts'));
     }
@@ -135,8 +136,8 @@ class PostController extends Controller
                 $contatore++;
                 $post_present = Post::where('slug',$slug)->first();
             }
+            $data['slug']=$slug;
         }
-        $data['slug']=$slug;
         $post->update($data);
 
 

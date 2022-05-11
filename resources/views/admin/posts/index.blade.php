@@ -26,7 +26,7 @@
                 <td>{{ $post -> title }}</td>
                 <td>{{ $post -> slug }}</td>
                 <td>{{ $post -> description }}</td>
-                <td>{{ $post -> category_id }}</td>
+                <td>{{ $post->category ? $post->category->name : '-' }}</td>
                 <td>{{ $post -> published_at }}</td>
                 <td>
                     {{-- bottone per indirizzare alla pagina di edit --}}
