@@ -2032,7 +2032,12 @@ __webpack_require__.r(__webpack_exports__);
     fetchPosts: function fetchPosts() {
       var _this = this;
 
-      axios.get('/api/post').then(function (res) {
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      axios.get('/api/post', {
+        params: {
+          page: page
+        }
+      }).then(function (res) {
         var posts = res.data.posts;
         var data = posts.data,
             last_page = posts.last_page,
@@ -2723,8 +2728,15 @@ var render = function () {
             "li",
             {
               key: n,
-              staticClass:
-                "border-dashed  border-orange-500 hover:bg-orange-500 border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center",
+              class: [
+                _vm.currentPage === n ? "bg-black text-white" : "bg-white",
+                "h-10 w-10 border-solid border-orange-500  border-2 rounded-lg font-bold cursor-pointer p-2 flex justify-center items-center",
+              ],
+              on: {
+                click: function ($event) {
+                  return _vm.fetchPosts(n)
+                },
+              },
             },
             [_vm._v(_vm._s(n))]
           )
