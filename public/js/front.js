@@ -26623,6 +26623,70 @@ var app = new Vue({
 
 /***/ }),
 
+/***/ "./resources/js/pages/Post.show.vue":
+/*!******************************************!*\
+  !*** ./resources/js/pages/Post.show.vue ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/pages/Post.show.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/pages/Posts.index.vue":
+/*!********************************************!*\
+  !*** ./resources/js/pages/Posts.index.vue ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/pages/Posts.index.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/router/index.js":
 /*!**************************************!*\
   !*** ./resources/js/router/index.js ***!
@@ -26634,10 +26698,22 @@ var app = new Vue({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var Vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! Vue */ "./node_modules/Vue/dist/vue.runtime.esm.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+/* harmony import */ var _pages_Posts_index_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/Posts.index.vue */ "./resources/js/pages/Posts.index.vue");
+/* harmony import */ var _pages_Post_show_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/Post.show.vue */ "./resources/js/pages/Post.show.vue");
 
 
 Vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
-var routes = [];
+
+
+var routes = [{
+  path: '/posts',
+  name: 'posts.index',
+  component: _pages_Posts_index_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+}, {
+  path: '/post',
+  name: 'posts.show',
+  component: _pages_Posts_index_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+}];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
   routes: routes
